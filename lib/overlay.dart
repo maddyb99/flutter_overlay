@@ -1,16 +1,16 @@
 import 'dart:ui';
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import 'overlay_card.dart';
 
 class CustomOverlay {
+  final BuildContext context;
+  final Widget child;
+
   Function removeOverlay;
   OverlayEntry overlay, overlayBackground;
-
-  final BuildContext context;
-  CustomOverlay({this.context}) {
+  CustomOverlay({this.context, this.child}) {
     removeOverlay = (context) {
       overlayBackground.remove();
       overlay.remove();
@@ -34,12 +34,7 @@ class CustomOverlay {
     );
     overlay = OverlayEntry(
       builder: (context) => OverlayCard(
-        imageUrl:
-            'https://content.presspage.com/uploads/1376/c1920_hotairballoonride-cappadocia.jpg?59012',
-        contentPreview:
-            "pee pee poo poopee pee poo poo pee pee poo poo pee pee poo poo pee pee poo poo pee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poo",
-        title: "What this cat do",
-        oArticleURL: "https://google.com",
+        child: child,
       ),
     );
     buildOverlay(context);
