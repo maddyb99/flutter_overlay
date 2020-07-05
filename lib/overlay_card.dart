@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:goodnewsapp/common/ui/custom_card.dart';
 
 class OverlayCard extends StatelessWidget {
-  Widget child;
+  final Widget child;
 
   OverlayCard({
     this.child,

@@ -6,11 +6,11 @@ import 'overlay_card.dart';
 
 class CustomOverlay {
   final BuildContext context;
-  final Widget child;
+  final Widget overlayCard;
 
   Function removeOverlay;
   OverlayEntry overlay, overlayBackground;
-  CustomOverlay({this.context, this.child}) {
+  CustomOverlay({this.context, this.overlayCard}) {
     removeOverlay = (context) {
       overlayBackground.remove();
       overlay.remove();
@@ -33,9 +33,7 @@ class CustomOverlay {
       ),
     );
     overlay = OverlayEntry(
-      builder: (context) => OverlayCard(
-        child: child,
-      ),
+      builder: (context) => overlayCard,
     );
     buildOverlay(context);
   }
