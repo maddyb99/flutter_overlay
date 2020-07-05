@@ -5,19 +5,18 @@ import 'package:flutter/material.dart';
 
 import 'overlay_card.dart';
 
-class CustomOverlay{
-
+class CustomOverlay {
   Function removeOverlay;
   OverlayEntry overlay, overlayBackground;
 
   final BuildContext context;
-  CustomOverlay({this.context}){
-    removeOverlay=(context) {
+  CustomOverlay({this.context}) {
+    removeOverlay = (context) {
       overlayBackground.remove();
       overlay.remove();
-      Navigator.of(context).setState(() { });
+      Navigator.of(context).setState(() {});
     };
-    overlayBackground=OverlayEntry(
+    overlayBackground = OverlayEntry(
       builder: (context) => Positioned.fill(
         child: GestureDetector(
           onTap: () => removeOverlay(context),
@@ -33,11 +32,12 @@ class CustomOverlay{
         ),
       ),
     );
-    overlay=OverlayEntry(
+    overlay = OverlayEntry(
       builder: (context) => OverlayCard(
-        imageUrl: 'https://content.presspage.com/uploads/1376/c1920_hotairballoonride-cappadocia.jpg?59012',
+        imageUrl:
+            'https://content.presspage.com/uploads/1376/c1920_hotairballoonride-cappadocia.jpg?59012',
         contentPreview:
-        "pee pee poo poopee pee poo poo pee pee poo poo pee pee poo poo pee pee poo poo pee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poo",
+            "pee pee poo poopee pee poo poo pee pee poo poo pee pee poo poo pee pee poo poo pee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poopee pee poo poo",
         title: "What this cat do",
         oArticleURL: "https://google.com",
       ),
@@ -46,6 +46,6 @@ class CustomOverlay{
   }
 
   void buildOverlay(BuildContext context) {
-    Overlay.of(context).insertAll([overlayBackground,overlay]);
+    Overlay.of(context).insertAll([overlayBackground, overlay]);
   }
 }
