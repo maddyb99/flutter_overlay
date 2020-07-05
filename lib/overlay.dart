@@ -2,8 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import 'overlay_card.dart';
-
 class CustomOverlay {
   final BuildContext context;
   final Widget overlayCard;
@@ -14,7 +12,7 @@ class CustomOverlay {
     removeOverlay = (context) {
       overlayBackground.remove();
       overlay.remove();
-      Navigator.of(context).setState(() {});
+//      Navigator.of(context).setState(() {});
     };
     overlayBackground = OverlayEntry(
       builder: (context) => Positioned.fill(
