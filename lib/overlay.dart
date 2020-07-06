@@ -8,6 +8,7 @@ class CustomOverlay {
 
   Function removeOverlay;
   OverlayEntry overlay, overlayBackground;
+
   CustomOverlay({this.context, this.overlayCard}) {
     removeOverlay = (context) {
       overlayBackground.remove();

@@ -14,6 +14,7 @@ class OverlayCard extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         CustomCard(
+          margin: 10,
           child: child,
         ),
       ],
