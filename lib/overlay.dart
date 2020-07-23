@@ -5,11 +5,12 @@ import 'package:flutter/material.dart';
 class CustomOverlay {
   final BuildContext context;
   final Widget overlayCard;
+  final Function builder;
 
   Function removeOverlay;
   OverlayEntry overlay, overlayBackground;
 
-  CustomOverlay({this.context, this.overlayCard}) {
+  CustomOverlay({this.context, this.overlayCard,this.builder}) {
     removeOverlay = (context) {
       overlayBackground.remove();
       overlay.remove();
@@ -31,9 +32,14 @@ class CustomOverlay {
         ),
       ),
     );
+    if(overlayCard!=null)
     overlay = OverlayEntry(
       builder: (context) => overlayCard,
     );
+    else
+      overlay = OverlayEntry(
+        builder: (context) => builder(context,removeOverlay),
+      );
     buildOverlay(context);
   }
 
