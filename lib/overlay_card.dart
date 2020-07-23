@@ -3,9 +3,11 @@ import 'package:goodnewsapp/common/ui/custom_card.dart';
 
 class OverlayCard extends StatelessWidget {
   final Widget child;
+  final Color color;
 
   OverlayCard({
     this.child,
+    this.color:Colors.white,
   });
 
   @override
@@ -14,6 +16,7 @@ class OverlayCard extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         CustomCard(
+          color:color,
           margin: 10,
           child: child,
         ),
