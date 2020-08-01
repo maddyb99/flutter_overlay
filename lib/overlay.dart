@@ -10,7 +10,7 @@ class CustomOverlay {
   Function removeOverlay;
   OverlayEntry overlay, overlayBackground;
 
-  CustomOverlay({this.context, this.overlayCard,this.builder}) {
+  CustomOverlay({this.context, this.overlayCard, this.builder}) {
     removeOverlay = (context) {
       overlayBackground.remove();
       overlay.remove();
@@ -32,13 +32,13 @@ class CustomOverlay {
         ),
       ),
     );
-    if(overlayCard!=null)
-    overlay = OverlayEntry(
-      builder: (context) => overlayCard,
-    );
+    if (overlayCard != null)
+      overlay = OverlayEntry(
+        builder: (context) => overlayCard,
+      );
     else
       overlay = OverlayEntry(
-        builder: (context) => builder(context,removeOverlay),
+        builder: (context) => builder(context, removeOverlay),
       );
     buildOverlay(context);
   }

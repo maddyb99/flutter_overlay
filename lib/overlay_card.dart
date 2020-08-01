@@ -7,7 +7,7 @@ class OverlayCard extends StatelessWidget {
 
   OverlayCard({
     this.child,
-    this.color:Colors.white,
+    this.color: Colors.white,
   });
 
   @override
@@ -16,7 +16,7 @@ class OverlayCard extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         CustomCard(
-          color:color,
+          color: color,
           margin: 10,
           child: child,
         ),

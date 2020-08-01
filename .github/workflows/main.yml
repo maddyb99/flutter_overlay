@@ -1,0 +1,41 @@
+on: push
+name: cleans, build and test app (mobile - android)
+jobs:
+  build:
+    name: install dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '1.9.1+hotfix.6'
+      - run: flutter upgrade
+      - run: flutter pub get
+      - run: flutter pub upgrade
+      #      - run: flutter test
+      - run: flutter build apk --release --target-platform android-arm,android-arm64,android-x64 --split-per-abi
+
+#      - run: zip -r builds.zip build/outputs/
+#      - name: Create a Release ZIP
+#        uses: ncipollo/release-action@v1
+#        with:
+#          artifacts: "builds.zip"
+
+      #
+      #      - name: install dependencies
+      #        uses: ./action
+      #        with:
+      #          args: pub get
+      #
+      #      - name: clean stale build and cache
+      #        uses: ./action
+      #        with:
+      #          args: clean
+      #
+      #      - name: build apk
+      #        uses: ./action
+      #        with:
+      #          args: build apk --release
