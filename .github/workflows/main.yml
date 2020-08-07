@@ -11,18 +11,18 @@ jobs:
           java-version: '12.x'
       - uses: subosito/flutter-action@v1
         with:
-          flutter-version: '1.9.1+hotfix.6'
+          flutter-version: '1.17.5'
+          channel: 'stable'
       - run: flutter upgrade
       - run: flutter pub get
-      - run: flutter pub upgrade
-      #      - run: flutter test
-#      - run: flutter build apk --release --target-platform android-arm,android-arm64,android-x64 --split-per-abi
+      - run: flutter format --set-exit-if-changed lib/ test/
+      #      - run: flutter build apk --release --target-platform android-arm,android-arm64,android-x64 --split-per-abi
 
-#      - run: zip -r builds.zip build/outputs/
-#      - name: Create a Release ZIP
-#        uses: ncipollo/release-action@v1
-#        with:
-#          artifacts: "builds.zip"
+      #      - run: zip -r builds.zip build/outputs/
+      #      - name: Create a Release ZIP
+      #        uses: ncipollo/release-action@v1
+      #        with:
+      #          artifacts: "builds.zip"
 
       #
       #      - name: install dependencies
