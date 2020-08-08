@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:goodnewsapp/common/ui/custom_card.dart';
 
 class OverlayCard extends StatelessWidget {
   final Widget child;
@@ -15,11 +14,7 @@ class OverlayCard extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        CustomCard(
-          color: color,
-          margin: 10,
-          child: child,
-        ),
+        child,
       ],
     );
   }
