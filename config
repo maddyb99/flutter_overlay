@@ -1,0 +1,7 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = true
+[remote "temp"]
+	url = /home/maddyb/Documents/PROJECTS/Flutter/temp/
+	fetch = +refs/heads/*:refs/remotes/temp/*
