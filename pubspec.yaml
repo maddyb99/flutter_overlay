@@ -1,8 +1,8 @@
 name: overlay
-description: A new Flutter package.
+description: This widget helps you easily build complex overlays
 version: 0.0.1
-author:
-homepage:
+author: maddyb99 <maddybcorp@outlook.com>
+homepage: https://github.com/maddyb99/flutter_overlay
 
 environment:
   sdk: ">=2.7.0 <3.0.0"

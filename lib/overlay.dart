@@ -4,22 +4,23 @@ import 'package:flutter/material.dart';
 
 class CustomOverlay {
   final BuildContext context;
-  final Widget overlayCard;
+  final Widget overlayWidget;
   final Function builder;
 
   Function removeOverlay;
   OverlayEntry overlay, overlayBackground;
 
-  CustomOverlay({this.context, this.overlayCard, this.builder}) {
-    removeOverlay = (context) {
+  CustomOverlay({@required this.context, this.overlayWidget, this.builder}) {
+    assert((overlayWidget != null && builder == null) ||
+        (overlayWidget == null && builder != null));
+    removeOverlay = () {
       overlayBackground.remove();
       overlay.remove();
-//      Navigator.of(context).setState(() {});
     };
     overlayBackground = OverlayEntry(
       builder: (context) => Positioned.fill(
         child: GestureDetector(
-          onTap: () => removeOverlay(context),
+          onTap: () => removeOverlay(),
           child: BackdropFilter(
             filter: ImageFilter.blur(
               sigmaX: 5.0,
@@ -32,13 +33,17 @@ class CustomOverlay {
         ),
       ),
     );
-    if (overlayCard != null)
+    if (overlayWidget != null)
       overlay = OverlayEntry(
-        builder: (context) => overlayCard,
+        builder: (context) => Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [overlayWidget]),
       );
     else
       overlay = OverlayEntry(
-        builder: (context) => builder(context, removeOverlay),
+        builder: (context) => Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [builder(removeOverlay)]),
       );
     buildOverlay(context);
   }
