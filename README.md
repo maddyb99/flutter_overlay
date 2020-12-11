@@ -59,7 +59,7 @@ In any action or button, which triggers an overlay, call the constructor for the
 
 ## The builder way:
 
-Builder passes aa function removeOverlay as argument which can be used to manually remove the overlay
+Builder passes a function removeOverlay as argument which can be used to manually remove the overlay
 
 ```dart
     MaterialButton(
@@ -68,7 +68,7 @@ Builder passes aa function removeOverlay as argument which can be used to manual
       // Call CustomOverlay Constructor in on pressed function
       onPressed: () => CustomOverlay(
         context: context,
-        // Builder passes aa function removeOverlay as argument which can be used to manually remove the overlay
+        // Builder passes a function removeOverlay as argument which can be used to manually remove the overlay
         builder: (removeOverlay) => Padding(
           padding: const EdgeInsets.all(8.0),
           child: Card(
